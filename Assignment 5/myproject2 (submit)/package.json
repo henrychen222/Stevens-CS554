@@ -1,0 +1,25 @@
+{
+  "name": "lab5-weichen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node worker/worker.js & node api/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "weichen",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "flat": "^4.0.0",
+    "node-redis": "^0.1.7",
+    "node-redis-pubsub": "^2.0.0",
+    "node-uuid": "^1.4.8",
+    "redis": "^2.8.0"
+  }
+}
+
+
