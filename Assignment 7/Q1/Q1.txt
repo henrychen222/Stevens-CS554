@@ -1,0 +1,30 @@
+Question 1
+
+In this scenario, you are tasked with creating a logging server for any number of other arbitrary pieces of technologies.
+
+Your logs should have some common fields, but support any number of customizeable fields for an individual log entry. You should be able to effectively query them based on any of these fields.
+
+How would you store your log entries? How would you allow users to submit log entries? How would you allow them to query log entries? How would you allow them to see their log entries? What would be your web server?
+
+
+
+
+
+How would you store your log entries?
+  I would use Apache Hadoop to store log entries. The most obvious aspect why we don't choose Elasticsearch is that it doesn't support multi-platforms and distributed computer clsuters. However, the scenario requires some common fields from multi-platform users. So, distributed file system is a must. 
+The benefits of using hadoop is that it provides a software framework for distributed storage and processing of big data using the MapReduce programming model, and it is very effecitive in solving problems involving massive amounts of data and computation. In our scenario, using hadoop is the best choice.
+
+
+How would you allow users to submit log entries?
+  Using standard input streaming
+
+How would you allow them to query log entries?
+  Use Map-reduce algorithm. Use Map function takes the data stored in Hadoop and	pulls it into a	format needed for the operation we need to perform. So in this case, we query the log entries from HDFS distributed file system
+
+How would you allow them to see their log entries?
+  Use Map-reduce algorithm. Use Reduce accumulates a result based	on that	data for the operation we need to perform. So, in this case, worker nodes will process each group of output data, per key, in parallel. The final processed data are log entries the users want to see. 
+
+What would be your web server?
+  (1) As hadoop is affiliated to Apache, we had better to use Apache server for the sake of avoiding compatibility conflict by using other   server.
+  (2) Apache server is very easy to configure especially in Linux with command "sudo apt-get install apache2"
+

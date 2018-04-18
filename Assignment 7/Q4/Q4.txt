@@ -1,0 +1,36 @@
+Question 4
+
+In this scenario, you are tasked with creating the web server side for a mobile application where people take pictures of mildly interesting things and upload them. The mobile application allows users to see mildly interesting pictures in their geographical location.
+
+Users must have an account to use this service. Your backend will effectively amount to an API and a storage solution for CRUD users, CRUD 'interesting events', as well as an administrative dashboard for managing content.
+
+How would you handle the geospatial nature of your data? How would you store images, both for long term, cheap storage and for short term, fast retrieval? What would you write your API in? What would be your database?
+
+
+
+How would you handle the geospatial nature of your data?
+  Utilize Cloud Computing to address big geospatial data. Big Data has emerged with new opportunities for research, development, innovation and business. It is characterized by the so-called four Vs: volume, velocity, veracity and variety and may bring significant value through the processing of Big Data. Cloud Computing has emerged as a new paradigm to provide computing as a utility service for addressing different processing needs with a) on demand services, b) pooled resources, c) elasticity, d) broad band access and e) measured services. Cloud Computing can be utilized to address Big Data challenges to enable transformation in many different cases, like climate studies, geospatial knowledge mining, land cover simulation, and dust storm modelling.
+  Our case is to handle pictures in different geographical locations. So we will use cloud computing to analyze and calculate the data. And Use Apache Hive and HDFS to store shared distributed data.
+
+
+How would you store images, both for long term, cheap storage and for short term, fast retrieval? 
+   For long term, cheap storage:
+      (1) use IndexDB. The IndexedDB API provides the browser with a complete database system for storing complex data. This can be used for things from complete sets of customer records to even complex data types like audio or video files. This IndexDB database is also not expensive for long term storage
+      (2) use Cache API. Some modern browsers support the new Cache API. This API is designed for storing HTTP responses to specific requests, and is very useful for doing things like storing website assets offline so the site can subsequently be used without a network connection.
+   For short term and fast retrieval:
+      (1) use cookies. Since the early days of the web, sites have used cookies to store information to personalize user experience on websites. They're the earliest form of client-side storage commonly used on the web
+      (2) use ImageMagick. it is a very powerful image manipulation utility. It is a command line utility that essentially allows you to perform	any sort of conversion imaginable on an	image. We can run images through ImageMagick to	have them compressed, resized, cropped,etc. Also, it's very convenient to upload photos. Also, ImageMagick is a very high powered, battle tested software for hardcore graphic manipulation. Graphically manipulation is very common in web development. We can use ImageMagick to resize, optimize, crop and combine images.
+      (3) use Web Storage. The Web Storage API provides a very simple syntax for storing and retrieving smaller, data items consisting of a name and a corresponding value. This is useful when you just need to store some simple data, like the user's name, whether they are logged in, what color to use for the background of the screen, etc.
+   
+
+What would you write your API in? 
+  Use REST API. The most remarkable benefit to use REST API is that it can have	the different pieces of software in our products to communicate, even if they are running on entirely different platforms and if some of your products are internal	only. 
+  In our case, there are two platforms: web server side and mobile application. So we should use REST API
+
+What would be your database?
+  For Mobile application. Here we use Android as an example. If the data(pictures) are in small-scale, using embedded database SQLite. If the data(pictures) are in large-scale, we should use URLConnection or HTTPClient in doInBackground() method connect to outside database Like Oracle which can handle large-scale data.
+  For web server side, If the data(pictures) are in small-scale, using mysql database other wise use Oracle.
+
+
+
+

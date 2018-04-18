@@ -1,0 +1,85 @@
+Question 3
+
+In this scenario, you are tasked with creating a service for your local Police Department that keeps track of Tweets within your area and scans for keywords to trigger an investigation.
+
+This application comes with several parts:
+
+    An online website to CRUD combinations of keywords to add to your trigger. For example, it would alert when a tweet contains the words (fight or drugs) AND (SmallTown USA HS or SMUHS).
+    An email alerting system to alert different officers depending on the contents of the Tweet, who tweeted it, etc.
+    A text alert system to inform officers for critical triggers (triggers that meet a combination that is marked as extremely important to note).
+    A historical database to view possible incidents (tweets that triggered an alert) and to mark its investigation status.
+    A historical log of all tweets to retroactively search through.
+    A streaming, online incident report. This would allow you to see tweets as they are parsed and see their threat level. This updates in real time.
+    A long term storage of all the media used by any tweets in your area (pictures, snapshots of the URL, etc).
+
+Which Twitter API do you use? How would you build this so its expandable to beyond your local precinct? What would you do to make sure that this system is constantly stable? What would be your web server technology? What databases would you use for triggers? For the historical log of tweets? How would you handle the real time, streaming incident report? How would you handle storing all the media that you have to store as well? What web server technology would you use?
+
+
+
+
+Which Twitter API do you use?
+  Use REST API. The Reason is that use REST API in our products is convenient to have different	pieces of software communicate,	even	if they are running on entirely different platforms and if some of your products are internal only. In this case, there are 6 components running on different platforms: An online website, An email alerting system, A historical database, A historical log of all tweets, A streaming, online incident report,  A long term storage of all the media. So, these components will work very well by using REST API
+
+How would you build this so its expandable to beyond your local precinct?
+  Use Apache Hive with HDFS file systems. Apache Hive is a data warehouse software project built on top of Apache Hadoop for providing data summarization, query and analysis. Hive gives an SQL-like interface to query data stored in various databases and file systems that integrate with Hadoop. It Especially supports analysis of large datasets stored in Hadoop's HDFS and compatible file systems such as Amazon S3 filesystem. 
+  In this case, the local precinct databases and other places databases will share their data in Apache Hive. 
+
+What would you do to make sure that this system is constantly stable?
+(1)Accelerate and Secure Applications with a Reverse Proxy Server
+      Load balancing (Minimum number of concurrent requests. Maximum time to serve a request. Minimum number of requests per hour.)
+      Caching static files
+      Securing the site
+(2)Add a Load Balancer
+(3)Cache Static and Dynamic Content
+      Moving content closer to users
+      Moving content to faster machines 
+      Moving content off of overused machines
+(4)Compress Data
+(5)Optimize SSL/TLS
+      Session caching
+      Session tickets or IDs 
+      OCSP stapling
+(6)Implement HTTP/2 or SPDY
+(7)Update Software Versions
+(8)Tune Linux for Performance
+      Backlog queue
+      File descriptors 
+      Ephemeral ports
+(9)Tune Your Web Server for Performance
+      Access logging
+      Buffering
+      Client keepalives 
+      Upstream keepalives
+      Limits
+      Worker processes
+      Socket sharding
+      Thread pools 
+(10)Monitor Live Activity to Resolve Issues and Bottlenecks
+
+
+What would be your web server technology? 
+  Exactly Express server is the best choice because REST API will easily interact with Express. An architectural style called REST (Representational State Transfer) advocates that web applications should use HTTP as it was originally envisioned. Lookups should use GET requests. PUT, POST, and DELETE requests should be used for mutation, creation, and deletion respectively. 
+  As Express server has GET, PUT, POST, DELETE requests, it fits well. Like Apache server only has GET and POST, so it won't work.
+
+
+What databases would you use for triggers? For the historical log of tweets?
+  Use Oracle PL/SQL to deal with Triggers. The format is like this (CREATE [OR REPLACE ] TRIGGER trigger_name ). Triggers are stored programs, which are automatically executed or fired when some events occur. In this case triggers are fight, drugs, SmallTown USA HS, and SMUHS.
+  Use MongoDB for historical log of tweets. Because mostly the logs are stored in JSON format. MongoDB is document-oriented database which uses JSON-like documents with schemas. So in this case, we will save historical log of tweets in documents and store it in MongoDB.
+
+
+How would you handle the real time, streaming incident report?
+   Use PagerDuty API. PagerDuty is a cloud-based platform that provides incident management and response across a huge range of third-party operational services. With PagerDuty, it is very easy to manage incident response and escalation across a collection of services and team members. PagerDuty is the hub that collects and organizes all of the necessary information and functionality for operational response in one place. The PagerDuty API features a number of endpoints for escalation policies, incidents, log entries, maintenance windows, schedules and notifications
+   Specific way to use PagerDuty API:
+      * dividing up the code using BLOCK
+      * dividing up the code using User Interface
+
+
+How would you handle storing all the media that you have to store as well?
+  Use ImageMagick Since it is a	very powerful image manipulation utility. It is	a command line utility that essentially	allows you to perform	any sort of conversion imaginable on an	image. We can run images through ImageMagick to	have them compressed, resized, cropped,etc. Also, it's very convenient to upload photos
+  In this case, we have resources like pictures and snapshots of the URL. So ImageMagick is the most suitable way to handle media data.
+
+
+What web server technology would you use?
+  Same question
+
+

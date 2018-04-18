@@ -1,0 +1,42 @@
+Question  2
+
+In this scenario, you are tasked with making an expense reporting web application.
+
+Users should be able to submit expenses, which are always of the same data structure: id, user, isReimbursed, reimbursedBy, submittedOn, paidOn, and amount.
+
+When an expense is reimbursed you will generate a PDF and email it to the user who submitted the expense.
+
+How would you store your expenses? What web server would you choose, and why? How would you handle the emails? How would you handle the PDF generation? How are you going to handle all the templating for the web application?
+
+
+
+
+
+How would you store your expenses?
+  Using redis. Since redis is an open-source in-memory database project implementing a distributed, in-memory key-value store with optional durability. It supports many abstract data structures, such as strings, lists, maps, sets, sorted sets, hyperloglogs, bitmaps and spatial indexes. So, in this case, we will use lists to save the expenses. Specific method is like lpushAsync() to add expenses to redis
+
+What web server would you choose, and why?
+  choosing Express server, because the expense data structure is in JSON format while Express simply returns JSON
+
+How would you handle the emails?
+   Communicating over IPC(Inter-process communication). In this case, the best way is to use messaging queues to handle emails.
+   From a design perspective a message queue is essentially a FIFO queue, which is a rather fundamental data type: What makes a message queue special is that while the application is responsible for en-queueing, a different process would be responsible for de-queueing. In queueing lingo, the application is the sender of the message(s), and the de-queueing process is the receiver. The obvious advantage is that the whole process is asynchronous, the receiver works independently of the sender, as long as there are messages to process. However, we need an extra component, the sender, for the whole thing to work.
+
+How would you handle the PDF generation?
+ (1)use LaTeX.  LaTeX is a document preparation	system for creating printable documents. LaTeX is a content first approach, which can then be combined with a set of styles. LaTeX is effectively the language we can write PDFs in.
+ (2)use wkhtmltopdf. It's growing to compete with LaTeX for PDF	generation. We would compose an	HTML document complete with CSS	and	images and send	it through wkhtmltopdf to be converted into a PDF.
+
+How are you going to handle all the templating for the web application?
+   Using Streams and Shell Commands.
+   First, we need to understand what is template. Hopefully most of us are aware of the MVC (Model, View, Controller) design model, where models process data, views show the results and finally, controllers handle user requests. For views, many dynamic languages generate data by writing code in static HTML files. For instance, JSP is implemented by inserting <%=....=%>, PHP by inserting <?php.....?>, etc. So, the template mechanism is like this: (1)Hello, my name is {Name}, (2) Name = "Mary" and we can get (3) Hello, my name is Mary.
+   Therefore, how these components in HTML files communicate with each other. The best way is to use Streams and Shell Commands. Couple of ways for processes to talk to each other:
+   * Through messaging queues such as RabbitMQ
+   * Through pub/subs like Redis
+   * Through pipes, such as stdin/stdout
+   * Through memory mapped files
+   * Through sockets
+
+
+
+
+
