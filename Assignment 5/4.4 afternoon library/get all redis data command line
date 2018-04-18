@@ -1,0 +1,11 @@
+https://redis.io/topics/rediscli
+https://redis.io/commands/keys
+https://stackoverflow.com/questions/5252099/redis-command-to-get-all-available-keys
+https://chartio.com/resources/tutorials/how-to-get-all-keys-in-redis/
+https://lzone.de/cheat-sheet/Redis
+https://www.objectrocket.com/blog/how-to/top-10-redis-cli-commands/
+https://www.digitalocean.com/community/tutorials/how-to-back-up-and-restore-your-redis-data-on-ubuntu-14-04
+
+(key scan)
+https://scalegrid.io/blog/redis-iterating-over-keys/
+https://dzone.com/articles/get-to-know-the-redis-database-iterating-over-keys
