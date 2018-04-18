@@ -1,0 +1,24 @@
+{
+  "name": "lab6_server",
+  "version": "1.0.0",
+  "description": "## Websockets and a Worker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "weichen",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.10.2",
+    "flat": "^2.0.1",
+    "node-redis": "^0.1.7",
+    "node-redis-pubsub": "^1.0.3",
+    "node-uuid": "^1.4.8",
+    "redis": "^2.8.0",
+    "request": "^2.81.0",
+    "socket.io": "^1.2.0"
+  }
+}

@@ -1,0 +1,5 @@
+(Can't resolve 'bootstrap/dist/css/bootstrap.css')
+https://github.com/erikras/react-redux-universal-hot-example/issues/171      
+
+
+just use sudo npm install bootstrap

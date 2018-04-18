@@ -1,0 +1,19 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "a test simple worker",
+  "scripts": {
+    "start": "node worker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "weichen",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "flat": "^2.0.1",
+    "node-redis": "^0.1.7",
+    "node-redis-pubsub": "^1.0.3",
+    "redis": "^2.8.0",
+    "request": "^2.85.0"
+  }
+}
